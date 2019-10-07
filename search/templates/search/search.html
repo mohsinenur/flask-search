@@ -1,0 +1,46 @@
+{% extends 'includes/base.html' %}
+
+{% block body %}
+<section>
+    <div class="navbar navbar-light bg-light ">
+        <div class="d-flex justify-content-center">
+            <form class="form-inline" action="/search" class="">
+                <input class="form-control mr-sm-2" type="search" aria-label="Search" name="q" value="{{ query }}">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="d-flex justify-content-left">
+            <a class="btn btn-primary" href="/" role="button">Home</a>
+        </div>
+    </div>
+</section>
+
+<section>
+
+    <div class="py-md-1 px-md-1 m-2 ">
+        <div class="d-flex justify-content-center">
+            <p class="card-text">Total {{ query|length }} result found</p>
+        </div>    
+    </div>
+</section>
+
+<section>
+    <div class="">
+        <div class="col-6">
+            <div class="">
+                {% for item in query %}
+                <div class="card py-md-1 px-md-1 m-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item }}</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text bg-light" style="transform: rotate(0);">
+                            This <a href="#" class="text-warning stretched-link">stretched link</a> will only be spread over the <code>p</code>-tag, because a transform is applied to it.
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
